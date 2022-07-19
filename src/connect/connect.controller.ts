@@ -1,11 +1,8 @@
-import { Service } from "typedi";
 import { Request, Response, NextFunction } from "express";
-import ConnectService from "./connect.service";
-import { IConnectController } from "./connect.interface";
+import { IConnectController, IConnectService } from "./connect.interface";
 
-@Service()
 class ConnectController implements IConnectController {
-  constructor(private connectService: ConnectService) {}
+  constructor(private connectService: IConnectService) {}
 
   connect = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {

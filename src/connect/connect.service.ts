@@ -1,10 +1,7 @@
-import { Service } from "typedi";
-import { IConnectService } from "./connect.interface";
-import ConnectRepository from "./connect.repository";
+import { IConnectService, IConnectRepository } from "./connect.interface";
 
-@Service()
 class ConnectService implements IConnectService {
-  constructor(private connectRepository: ConnectRepository) {}
+  constructor(private connectRepository: IConnectRepository) {}
 
   find = async ({ test }: { test: string }): Promise<any> => {
     try {
